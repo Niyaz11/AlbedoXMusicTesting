@@ -8,7 +8,7 @@ class Config:
         self.API_ID = 29245477
         self.API_HASH = "0abc83883262245c90ca337b7a0375c4"
 
-        self.BOT_TOKEN = ""
+        self.BOT_TOKEN = "8462016049:AAFRuEfssPXbmMvjTBD2ztNcOHIzwpB-pgQ"
         self.MONGO_URL = "mongodb+srv://musicxrobot:8Up92WwJbgUS39FV@cluster0.ys1jirt.mongodb.net/"
 
         self.LOGGER_ID = (-1002456565415)
