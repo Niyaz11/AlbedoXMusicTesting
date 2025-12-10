@@ -48,6 +48,14 @@ def checkUB(play):
 
         if chat_id not in db.active_calls:
             client = await db.get_client(chat_id)
+
+            # ------------------ FIX APPLIED HERE ------------------
+            if not client or not getattr(client, "id", None):
+                return await m.reply_text(
+                    "❗ Assistant account is not logged in.\nPlease set a valid SESSION_STRING."
+                )
+            # -------------------------------------------------------
+
             try:
                 member = await app.get_chat_member(chat_id, client.id)
                 if member.status in [
@@ -118,3 +126,4 @@ def checkUB(play):
         return await play(_, m, force, video, url)
 
     return wrapper
+    
