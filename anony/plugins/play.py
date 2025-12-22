@@ -31,6 +31,7 @@ async def play_hndlr(
     _,
     m: types.Message,
     force: bool = False,
+    m3u8: bool = False,
     video: bool = False,
     url: str = None,
 ) -> None:
@@ -90,7 +91,7 @@ async def play_hndlr(
     else:
         position = queue.add(m.chat.id, file)
 
-        if await db.get_call(m.chat.id):
+        if position != 0 or await db.get_call(m.chat.id):
             await sent.edit_text(
                 m.lang["play_queued"].format(
                     position,
